@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+}
+
+header {
+  h1 {
+    font-size: 4em;
+    font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  }
+  .icon {
+    width: 6em;
+    height: 6em;
+  }
+}
+
+.recipe {
+  height: 200px;
+  width: 300px;
+}
+
+.recipe-content {
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+
+  h2{
+    font-family: 'Slabo 27px', Arial, Helvetica, sans-serif;
+  }
+
+  .recipe-rating {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 0.25em;
+  }
+}
