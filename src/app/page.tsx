@@ -4,12 +4,19 @@ import { useEffect, useState } from 'react';
 import { HeartIcon } from '@heroicons/react/24/solid';
 
 export default function Home() {
-  const [recipes, setRecipes] = useState([]);
+  interface Recipe {
+    id: number;
+    name: string;
+    image: string;
+    rating: number;
+  }
+
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
     fetch('/api/recipes')
       .then(response => response.json())
-      .then(data => setRecipes(data.recipes));
+      .then(data => setRecipes(data.recipes))
   }, []);
 
   return (
@@ -20,6 +27,9 @@ export default function Home() {
       </header>
       <main className="flex flex-col items-center w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          {recipes.length === 0 && (
+            <p>No Recipes Found</p>
+          )}
           {recipes.map((recipe) => (
             <div
               key={recipe.id}
