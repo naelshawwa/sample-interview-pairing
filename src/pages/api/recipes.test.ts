@@ -19,7 +19,7 @@ describe('/api/recipes api', () => {
       json: jest.fn(),
     } as unknown as NextApiResponse;
     await handler(req,res)
-    expect(fetchMock).toHaveBeenCalledWith('https://dummyjson.com/recipes');
+    expect(fetchMock).toHaveBeenCalledWith('https://dummyjson.com/recipes?limit=4');
 
   });
 });
